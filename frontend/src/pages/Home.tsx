@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import { translations } from "../utils/translations";
 import RideCard from "../components/RideCard";

@@ -1,3 +1,4 @@
+@RideKG_bot search on Telegram
 # Kyrgyzstan Ride-Share & Cargo MVP
 
 Full-stack ride-sharing platform for Kyrgyzstan built as a Telegram Mini App.

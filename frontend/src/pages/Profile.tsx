@@ -59,7 +59,7 @@ const mockUserTripsEn = [
 ];
 
 export default function Profile() {
-  const { user, setUser, language, setLanguage } = useAuthStore();
+  const { user, language, setLanguage } = useAuthStore();
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState<"driver" | "passenger">("passenger");
   const [loading, setLoading] = useState(false);

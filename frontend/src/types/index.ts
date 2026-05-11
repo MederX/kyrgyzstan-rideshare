@@ -5,6 +5,7 @@ export interface User {
   first_name: string;
   last_name: string;
   profile_photo: string;
+  photo_url?: string;
   phone_number: string;
   role: "driver" | "passenger";
   created_at: string;

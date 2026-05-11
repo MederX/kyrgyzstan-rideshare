@@ -137,7 +137,6 @@ export default function Home() {
   const [filteredRides, setFilteredRides] = useState(language === "en" ? mockRides : mockRidesRu);
   const [activeTab, setActiveTab] = useState<"search" | "create">("search");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const t = translations[language];
 
   // Search filters

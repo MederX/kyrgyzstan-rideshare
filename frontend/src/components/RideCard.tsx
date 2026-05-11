@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { translations } from "../utils/translations";
 import { haptic, sendNotification } from "../utils/telegram";
@@ -82,7 +81,7 @@ export default function RideCard({ ride }: Props) {
         {ride.cargo_allowed && (
           <div className="flex items-center gap-2">
             <span className="text-xs bg-green-800 text-green-300 px-2 py-1 rounded">
-              {t.cargo}
+              {t.cargoAllowed}
             </span>
           </div>
         )}

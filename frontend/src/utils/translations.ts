@@ -34,7 +34,7 @@ export const translations = {
     price: "Цена за место",
     bookSeat: "Забронировать место",
     contactDriver: "Связаться с водителем",
-    cargo: "Груз ✓",
+    cargoAllowed: "Груз ✓",
     cargoPage: "Груз"
   },
   en: {
@@ -72,7 +72,7 @@ export const translations = {
     price: "Price per seat",
     bookSeat: "Book Seat",
     contactDriver: "Contact Driver",
-    cargo: "Cargo ✓",
+    cargoAllowed: "Cargo ✓",
     cargoPage: "Cargo"
   }
 };

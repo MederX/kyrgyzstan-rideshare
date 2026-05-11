@@ -7,36 +7,21 @@ export function getTelegramUser() {
 }
 
 export function expandApp() {
-  window.Telegram?.WebApp?.expand();
+  if (window.Telegram?.WebApp?.expand) {
+    window.Telegram.WebApp.expand();
+  }
 }
 
 export function haptic() {
-  window.Telegram?.WebApp?.HapticFeedback?.impactOccurred("light");
-}
-
-export function showAlert(message: string) {
-  window.Telegram?.WebApp?.showAlert(message);
-}
-
-export function showConfirm(message: string, callback: (confirmed: boolean) => void) {
-  window.Telegram?.WebApp?.showConfirm(message, callback);
+  if (window.Telegram?.WebApp?.HapticFeedback?.impactOccurred) {
+    window.Telegram.WebApp.HapticFeedback.impactOccurred("light");
+  }
 }
 
 export function sendNotification(message: string, phoneNumber: string) {
   const telegramUser = getTelegramUser();
-  if (telegramUser && window.Telegram?.WebApp) {
-    // Create inline keyboard with call button
-    const keyboard = {
-      inline_keyboard: [[
-        {
-          text: "📞 Позвонить водителю",
-          url: `tel:${phoneNumber}`
-        }
-      ]]
-    };
-    
-    // Show popup with call button
-    window.Telegram?.WebApp?.showPopup({
+  if (telegramUser && window.Telegram?.WebApp?.showPopup) {
+    window.Telegram.WebApp.showPopup({
       title: "Бронирование подтверждено!",
       message: message,
       buttons: [

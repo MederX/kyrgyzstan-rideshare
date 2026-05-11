@@ -6,11 +6,9 @@ import type { Ride } from "../types";
 
 interface Props {
   ride: Ride & { driver_phone?: string };
-  onClick?: () => void;
 }
 
-export default function RideCard({ ride, onClick }: Props) {
-  const [showDetails, setShowDetails] = useState(false);
+export default function RideCard({ ride }: Props) {
   const { language } = useAuthStore();
   const t = translations[language];
 

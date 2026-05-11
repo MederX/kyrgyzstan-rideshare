@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useForm } from "react-hook-form";
 import CitySelector from "../components/CitySelector";
@@ -31,7 +31,7 @@ const mockCargo = [
 ];
 
 export default function CargoRequests() {
-  const [items, setItems] = useState(mockCargo);
+  const [items] = useState(mockCargo);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const { language } = useAuthStore();
@@ -70,7 +70,7 @@ export default function CargoRequests() {
     }
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     setLoading(true);
     setTimeout(() => {
       alert(t[language].created);

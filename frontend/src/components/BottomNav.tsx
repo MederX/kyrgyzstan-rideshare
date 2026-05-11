@@ -10,7 +10,7 @@ export default function BottomNav() {
 
   const tabs = [
     { path: "/", icon: "🏠", label: t.home },
-    { path: "/cargo", icon: "📦", label: t.cargo },
+    { path: "/cargo", icon: "📦", label: t.cargoPage },
     { path: "/profile", icon: "👤", label: t.profile },
   ];
 

@@ -6,8 +6,6 @@ import client from "./api/client";
 import BottomNav from "./components/BottomNav";
 import LoadingSpinner from "./components/LoadingSpinner";
 import Home from "./pages/Home";
-import FindRide from "./pages/FindRide";
-import CreateRide from "./pages/CreateRide";
 import CargoRequests from "./pages/CargoRequests";
 import Profile from "./pages/Profile";
 

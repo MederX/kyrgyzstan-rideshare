@@ -7,7 +7,7 @@ import type { Ride } from "../types";
 
 export default function Home() {
   const { language } = useAuthStore();
-  const [rides, setRides] = useState<Ride[]>([]);
+  const [rides] = useState<Ride[]>([]);
   const [filteredRides, setFilteredRides] = useState<Ride[]>([]);
   const [activeTab, setActiveTab] = useState<"search" | "create">("search");
   const [loading, setLoading] = useState(false);

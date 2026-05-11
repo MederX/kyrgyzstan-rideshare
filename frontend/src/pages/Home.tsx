@@ -3,137 +3,12 @@ import { useAuthStore } from "../store/useAuthStore";
 import { translations } from "../utils/translations";
 import RideCard from "../components/RideCard";
 import CitySelector from "../components/CitySelector";
-
-const mockRides = [
-  {
-    id: "1",
-    driver_id: "test1",
-    driver_name: "Aibek K.",
-    driver_phone: "+996 700 123456",
-    driver_photo: "",
-    from_city: "Bishkek",
-    to_city: "Osh",
-    departure_date: "2024-05-15",
-    departure_time: "08:00",
-    seats_total: 4,
-    seats_available: 2,
-    price_per_seat: 800,
-    currency: "KGS",
-    vehicle_type: "Toyota Camry",
-    cargo_allowed: true,
-    notes: "Stop in Tokmok",
-    status: "active" as const,
-    created_at: "2024-05-10T10:00:00Z"
-  },
-  {
-    id: "2", 
-    driver_id: "test2",
-    driver_name: "Gulnara A.",
-    driver_phone: "+996 555 987654",
-    driver_photo: "",
-    from_city: "Osh",
-    to_city: "Jalal-Abad",
-    departure_date: "2024-05-16",
-    departure_time: "14:30",
-    seats_total: 3,
-    seats_available: 1,
-    price_per_seat: 400,
-    currency: "KGS",
-    vehicle_type: "Honda Civic",
-    cargo_allowed: false,
-    notes: "",
-    status: "active" as const,
-    created_at: "2024-05-10T11:00:00Z"
-  },
-  {
-    id: "3",
-    driver_id: "test3", 
-    driver_name: "Bekzat M.",
-    driver_phone: "+996 777 111222",
-    driver_photo: "",
-    from_city: "Karakol",
-    to_city: "Bishkek",
-    departure_date: "2024-05-17",
-    departure_time: "06:00",
-    seats_total: 4,
-    seats_available: 4,
-    price_per_seat: 600,
-    currency: "KGS",
-    vehicle_type: "Lexus GX 470",
-    cargo_allowed: true,
-    notes: "Early morning",
-    status: "active" as const,
-    created_at: "2024-05-10T12:00:00Z"
-  }
-];
-
-const mockRidesRu = [
-  {
-    id: "1",
-    driver_id: "test1",
-    driver_name: "Айбек К.",
-    driver_phone: "+996 700 123456",
-    driver_photo: "",
-    from_city: "Бишкек",
-    to_city: "Ош",
-    departure_date: "2024-05-15",
-    departure_time: "08:00",
-    seats_total: 4,
-    seats_available: 2,
-    price_per_seat: 800,
-    currency: "KGS",
-    vehicle_type: "Toyota Camry",
-    cargo_allowed: true,
-    notes: "Остановка в Токмоке",
-    status: "active" as const,
-    created_at: "2024-05-10T10:00:00Z"
-  },
-  {
-    id: "2", 
-    driver_id: "test2",
-    driver_name: "Гүлнара А.",
-    driver_phone: "+996 555 987654",
-    driver_photo: "",
-    from_city: "Ош",
-    to_city: "Джалал-Абад",
-    departure_date: "2024-05-16",
-    departure_time: "14:30",
-    seats_total: 3,
-    seats_available: 1,
-    price_per_seat: 400,
-    currency: "KGS",
-    vehicle_type: "Honda Civic",
-    cargo_allowed: false,
-    notes: "",
-    status: "active" as const,
-    created_at: "2024-05-10T11:00:00Z"
-  },
-  {
-    id: "3",
-    driver_id: "test3", 
-    driver_name: "Бекзат М.",
-    driver_phone: "+996 777 111222",
-    driver_photo: "",
-    from_city: "Каракол",
-    to_city: "Бишкек",
-    departure_date: "2024-05-17",
-    departure_time: "06:00",
-    seats_total: 4,
-    seats_available: 4,
-    price_per_seat: 600,
-    currency: "KGS",
-    vehicle_type: "Lexus GX 470",
-    cargo_allowed: true,
-    notes: "Раннее утро",
-    status: "active" as const,
-    created_at: "2024-05-10T12:00:00Z"
-  }
-];
+import type { Ride } from "../types";
 
 export default function Home() {
   const { language } = useAuthStore();
-  const [rides, setRides] = useState(language === "en" ? mockRides : mockRidesRu);
-  const [filteredRides, setFilteredRides] = useState(language === "en" ? mockRides : mockRidesRu);
+  const [rides, setRides] = useState<Ride[]>([]);
+  const [filteredRides, setFilteredRides] = useState<Ride[]>([]);
   const [activeTab, setActiveTab] = useState<"search" | "create">("search");
   const [loading, setLoading] = useState(false);
   const t = translations[language];
@@ -157,9 +32,7 @@ export default function Home() {
 
   // Update rides when language changes
   useEffect(() => {
-    const currentRides = language === "en" ? mockRides : mockRidesRu;
-    setRides(currentRides);
-    setFilteredRides(currentRides);
+    // Will be replaced by API call
   }, [language]);
 
   const handleSearch = () => {

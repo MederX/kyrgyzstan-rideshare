@@ -3,68 +3,13 @@ import { useAuthStore } from "../store/useAuthStore";
 import { getTelegramUser } from "../utils/telegram";
 import { translations } from "../utils/translations";
 
-// Mock user trips data
-const mockUserTrips = [
-  {
-    id: "1",
-    from_city: "Бишкек",
-    to_city: "Ош", 
-    departure_date: "2024-05-15",
-    departure_time: "08:00",
-    seats_total: 4,
-    seats_available: 2,
-    price_per_seat: 800,
-    vehicle_type: "Toyota Camry",
-    status: "active"
-  },
-  {
-    id: "3",
-    from_city: "Каракол",
-    to_city: "Бишкек",
-    departure_date: "2024-05-17", 
-    departure_time: "06:00",
-    seats_total: 4,
-    seats_available: 4,
-    price_per_seat: 600,
-    vehicle_type: "Lexus GX 470",
-    status: "active"
-  }
-];
-
-const mockUserTripsEn = [
-  {
-    id: "1",
-    from_city: "Bishkek",
-    to_city: "Osh", 
-    departure_date: "2024-05-15",
-    departure_time: "08:00",
-    seats_total: 4,
-    seats_available: 2,
-    price_per_seat: 800,
-    vehicle_type: "Toyota Camry",
-    status: "active"
-  },
-  {
-    id: "3",
-    from_city: "Karakol",
-    to_city: "Bishkek",
-    departure_date: "2024-05-17", 
-    departure_time: "06:00",
-    seats_total: 4,
-    seats_available: 4,
-    price_per_seat: 600,
-    vehicle_type: "Lexus GX 470",
-    status: "active"
-  }
-];
-
 export default function Profile() {
   const { user, language, setLanguage } = useAuthStore();
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState<"driver" | "passenger">("passenger");
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"profile" | "trips">("profile");
-  const [userTrips, setUserTrips] = useState(language === "en" ? mockUserTripsEn : mockUserTrips);
+  const [userTrips, setUserTrips] = useState<any[]>([]);
   const [editingTrip, setEditingTrip] = useState<string | null>(null);
   const [editForm, setEditForm] = useState({
     departure_time: "",
@@ -84,8 +29,7 @@ export default function Profile() {
 
   // Update trips when language changes
   useEffect(() => {
-    const currentTrips = language === "en" ? mockUserTripsEn : mockUserTrips;
-    setUserTrips(currentTrips);
+    // Will be replaced by API call
   }, [language]);
 
   const handleSave = () => {
